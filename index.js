@@ -1097,9 +1097,11 @@ let arr2;
   arr2 = [...arr1]; // this way  
 })();
 console.log(arr2); 
+*/
+// Destructuring Assignment
+/*
 
 */
-
 
 
 

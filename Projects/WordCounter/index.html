@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter</title>
+  <style>
+    body{
+      padding: 50px 100px;
+     }
+     h1{
+      text-align: center;
+      background-color: lightblue;
+      color: white;
+      padding: 10px;
+      margin: 0px;
+     }
+     #textbox{
+      width: 99.3%;
+      border-color: lightblue;
+      font-size: 20px;
+      font-weight: bold;
+     }
+     p{
+      text-align: center;
+      background-color: lightblue;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      padding: 10px;
+      margin: 0px;
+     }
+  </style>
+</head>
+<body>
+  <h1>Word and Character counter</h1>
+  <textarea id="textbox" cols="30" rows="10"></textarea>
+  <p>
+    <span id="word">0</span> words and 
+    <span id="char">0</span> characters <!-- since we want to change both zeros again and again-->
+  </p>
+
+  <script>
+    let textbox = document.getElementById("textbox");
+    textbox.addEventListener('input', function(){
+      var text = this.value;
+      let char = text.length;
+      document.getElementById("char").innerHTML = char;
+      
+      text = text.trim();  // to take out extra spaces in begining and ending
+      let words = text.split(" ");  // will break the words array whenever it encounters a space.
+      let cleanList = words.filter(function(elm){
+                   return elm != "";
+      });
+      //document.getElementById("word").innerHTML = words.length;
+      // but here when two spaces are given it will treat the second space as a word
+      document.getElementById("word").innerHTML = cleanList.length;
+    });
+  </script>
+</body>
+</html>
