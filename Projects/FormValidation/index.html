@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <style>
+    body{
+      background-color: rgb(103, 202, 238);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #form-container{
+      background-color: white;
+      padding: 50px;
+      text-align: center;
+    }
+    h2{
+      margin: 0px 0px 10px 0px;
+    }
+    input {
+      width: 200px;
+      margin: 10px 0px;
+      height: 30px;
+      padding: 10px;
+    }
+    input[type="submit"]{
+      height: 50px;
+      width: 222px;
+      background-color: rgb(103, 202, 238);
+      border: 0px;
+      color: white;
+    }
+    .error{
+      color: red;
+      margin: 0px;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="form-container">
+    <h2>Login</h2>
+    <form action="" onsubmit="return validateForm()">
+      <input type="text" placeholder="User Name" id="username"><br>
+      <p id="userError" class="error"></p>
+      <input type="password" placeholder="Password" id="password"><br>
+      <p id="passError" class="error"></p>
+      <input type="submit">
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      let username = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+      let userError = document.getElementById("userError");
+      let passError = document.getElementById("passError");
+
+
+      
+      let isValid = true;
+
+      userError.textContent = "";
+      passError.textContent = "";
+
+      if (username === "") {
+        userError.textContent = "User Name is empty";
+        isValid = false;
+      } else if (username.length < 3) {
+        userError.textContent = "User Name requires at least 3 characters";
+        isValid = false;
+      }
+
+      if (password === "") {
+        passError.textContent = "Password is empty";
+        isValid = false;
+      }
+
+      return isValid;
+    }
+  </script>
+</body>
+</html>
