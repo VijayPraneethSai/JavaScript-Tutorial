@@ -1,0 +1,19 @@
+<!-- when we want to allow any number of parameters in the function -->
+<!-- ... is the rest parameter -->
+<script>
+function sum(...args){  // the parameters given by the user is stored as an array so, srga is an array
+  console.log(args);
+  let result = 0;
+
+  for(let i = 0; i<args.length; i++){
+    result += args[i];
+  }
+
+  console.log(result);
+}
+
+sun();
+sum(2, 3);
+sum(2, 3, 5);
+
+</script>

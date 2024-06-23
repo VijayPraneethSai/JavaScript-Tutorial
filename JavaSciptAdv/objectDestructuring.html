@@ -1,0 +1,32 @@
+<script>
+  let book ={
+    name: "Advance JS",
+    page: 200,
+    price: 150
+  };
+
+  let {name, page, price} = book; // we can directly use the properties in the object as variables 
+  console.log(price);
+  // we can alos change the varibale name if wanted
+  let book2 ={
+    name2: "Advance JS",
+    page2: 200
+  };
+
+  let{name2:title, page2, price2 = 200} = book;  //default value
+  console.log(title);
+
+  let book3 ={
+    name3: "Advance JS",
+    page3: 200,
+    publication: {
+      pub_name: "My Publication",
+      year: 2024
+    }
+  };
+
+  let{name3: title2, page3, publication:{pub_name: pub, year}} = book;
+  console.log(pub);
+  console.log(title2);
+  console.log(year);
+</script>

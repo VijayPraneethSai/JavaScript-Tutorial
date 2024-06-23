@@ -1,0 +1,41 @@
+<script>
+  let book = [ "Advance JS", 200, 150];
+
+  // let name = book[0];
+  // let pages = book[1];
+  // let price = book[2];
+
+  // writing this is similar to above
+  let[name, page, price] = book;
+  //to check
+  console.log(name);
+  console.log(page);
+  console.log(price);
+  // if we add additional variable than the number of elements in the array during destructing the array the extra varibales will be showing undefined value
+
+  //we can also store blank values in an array
+  let book2 = ["Advance JS Part 2", ,200, "My Publications"];
+  let [name2, page2, price2, publication] = book2;
+  console.log(page2); //will come undefined
+
+  // setting default values to variables
+  let book3 = ["Advance JS Part 3", ,200, "My Publications"];
+  let [name3, page3 = 500, price3, publication3] = book3;
+  console.log(page2); //since the page3 has mapped to blank in the array default value(500) will be printed
+
+  //nested arrays
+  let book4 = ["Advance JS Part 4",100 ,200, ["My Publications", 2024]]
+  let [name4, page4 = 500, price4, [publication4, year]] = book;
+  console.log(page4); // 100 will be printed not 500(default) since here in the array there is a value and it is not blank
+  console.log(year);
+
+  // USE CASE: When the function returns an array
+  function book(){
+    return ["Advance JS", 200]
+  }
+  let [book_title, funcPrice] = book();  // here we are directly able to store the array elements into seperate variables
+  console.log(book_title);
+  console.log(funcPrice);
+
+
+</script>
